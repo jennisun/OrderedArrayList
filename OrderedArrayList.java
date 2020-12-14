@@ -15,13 +15,13 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public void add(int index, T value) throws IllegalArgumentException {
-    if (value == null) throw new IllegalArgumentException();
+    if (value == null || index >= size()) throw new IllegalArgumentException();
     super.add(index, value);
     sort();
   }
 
   public T set(int index, T value) throws IllegalArgumentException {
-    if (value == null) throw new IllegalArgumentException();
+    if (value == null || index >= size()) throw new IllegalArgumentException();
     T ans = super.remove(index);
     super.add(index, value);
     sort();
