@@ -25,7 +25,17 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     return (ans);
   }
 
-
+  private void sort() {
+    for (int i = size(); i > 0; i --) {
+      for (int k = 0; k + 1 < i; k ++) {
+        if (get(k).compareTo(get(k + 1)) > 0) {
+          T hold = get(k + 1);
+          set(k + 1, get(k));
+          set(k, hold);
+        }
+      }
+    }
+  }
 
 
 
