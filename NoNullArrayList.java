@@ -25,7 +25,6 @@ class NoNullArrayList<T> extends ArrayList<T> {
     if (value == null) throw new IllegalArgumentException();
     return super.set(index, value);
   }
-
-
+  
 
 }
