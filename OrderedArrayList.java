@@ -10,18 +10,19 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   public boolean add(T value) throws IllegalArgumentException {
     if (value == null) throw new IllegalArgumentException();
+    boolean hold = super.add(value);
     sort();
-    return super.add(value);
-  }
+    return hold;
+}
 
   public void add(int index, T value) throws IllegalArgumentException {
-    if (value == null || index >= size() || index < 0) throw new IllegalArgumentException();
+    if (value == null) throw new IllegalArgumentException();
     super.add(index, value);
     sort();
   }
 
   public T set(int index, T value) throws IllegalArgumentException {
-    if (value == null || index >= size() || index < 0) throw new IllegalArgumentException();
+    if (value == null) throw new IllegalArgumentException();
     T ans = super.remove(index);
     super.add(index, value);
     sort();
@@ -29,7 +30,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   private void sort() {
-    for (int i = size(); i > 0; i --) {
+    for (int i = 1; i <= size(); i++) {
       for (int k = 0; k + 1 < i; k ++) {
         if (get(k).compareTo(get(k + 1)) > 0) {
           T hold = get(k + 1);
@@ -38,6 +39,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
         }
       }
     }
+
   }
 
 
