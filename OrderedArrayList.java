@@ -30,21 +30,24 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   private void sort() {
-    for (int i = 1; i <= size(); i++) {
-      for (int k = 0; k + 1 < i; k ++) {
-        if (get(k).compareTo(get(k + 1)) > 0) {
-          T hold = get(k + 1);
-          set(k + 1, get(k));
-          set(k, hold);
+    boolean change = true;
+
+    while (change) {
+      change = false;
+      for (int i = 1; i <= size(); i++) {
+        for (int k = 0; k + 1 < i; k ++) {
+          if (get(k).compareTo(get(k + 1)) > 0) {
+            T hold = get(k + 1);
+            set(k + 1, get(k));
+            set(k, hold);
+
+            change = true;
+          }
         }
       }
     }
 
   }
-
-
-
-
 
 
 }
