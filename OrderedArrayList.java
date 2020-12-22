@@ -11,24 +11,30 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   public boolean add(T value) throws IllegalArgumentException {
     if (value == null) throw new IllegalArgumentException();
 
-    for (int i = 0; i < size(); i ++) {
-      if (value.compareTo(get(i)) <= 0) {
-        super.add(i, value);
-        break;
+    if (size() == 0) super.add(value);
+
+    else {
+      for (int i = 0; i < size(); i ++) {
+        if (value.compareTo(get(i)) <= 0) {
+          super.add(i, value);
+          break;
+        }
       }
     }
-
-    boolean hold = super.add(value);
-    return hold;
+    return true;
 }
 
   public void add(int index, T value) throws IllegalArgumentException {
     if (value == null) throw new IllegalArgumentException();
 
-    for (int i = 0; i < size(); i ++) {
-      if (value.compareTo(get(i)) <= 0) {
-        super.add(i, value);
-        break;
+    if (size() == 0) super.add(value);
+
+    else {
+      for (int i = 0; i < size(); i ++) {
+        if (value.compareTo(get(i)) <= 0) {
+          super.add(i, value);
+          break;
+        }
       }
     }
 
