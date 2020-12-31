@@ -9,6 +9,8 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public boolean add(T value) throws IllegalArgumentException {
+    boolean a = false;
+
     if (value == null) throw new IllegalArgumentException();
 
     if (size() == 0) super.add(value);
@@ -16,10 +18,12 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     else {
       for (int i = 0; i < size(); i ++) {
         if (value.compareTo(get(i)) <= 0) {
+          a = true;
           super.add(i, value);
           break;
         }
       }
+      if (!a) super.add(value);
     }
     return true;
 }
