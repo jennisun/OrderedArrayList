@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class T1 {
 
 	public static void main(String[] args) {
 		OrderedArrayList<Integer> a = new OrderedArrayList<>();
 
-    a.add(1);
-    a.add(5);
-    a.add(2);
-    a.add(4);
-    a.add(3);
-    a.add(1);
+		Random rand = new Random();
+
+    for (int i = 0; i < 20; i ++) {
+			a.add(rand.nextInt(50));
+		}
+
 
     for (int i : a) {
 			System.out.println(i);
